@@ -18,26 +18,24 @@ public class InputView {
         return input;
     }
 
-    public List<Integer> winningNumbers() {
+    public Lotto winningNumbers() {
         System.out.println("당첨 번호를 입력해 주세요.");
         String input = Console.readLine();
 
         List<Integer> inputs = parseWinningNumbers(input);
         validateNotEmpty(inputs);
         validatePositiveInteger(inputs);
-        validateDuplicates(inputs);
 
-        return inputs;
+        return new Lotto(inputs);
     }
 
-    public int bonusNumber(List<Integer> winningNumbers) {
+    public int bonusNumber() {
         System.out.println("보너스 번호를 입력해 주세요.");
         int input = userInput();
 
         List<Integer> inputs = List.of(input);
         validateNotEmpty(inputs);
         validatePositiveInteger(inputs);
-        validateBonusNotInWinning(input, winningNumbers);
 
         return input;
     }
@@ -78,14 +76,5 @@ public class InputView {
         if (inputs.stream().anyMatch(i -> i <= 0)) {
             throw new IllegalArgumentException("양의 정수를 입력해야 합니다.");
         }
-    }
-
-    private void validateDuplicates(List<Integer> inputs) {
-        Set<Integer> unique = new HashSet<>(inputs);
-        if (unique.size() != inputs.size()) throw new IllegalArgumentException("중복되는 숫자가 있습니다.");
-    }
-
-    private void validateBonusNotInWinning(int input, List<Integer> winningNumbers) {
-        if (winningNumbers.contains(input)) throw new IllegalArgumentException("보너스 번호와 당첨 번호는 달라야 합니다.");
     }
 }
