@@ -8,20 +8,19 @@ import java.util.*;
 
 public class LottoMatch {
 
-    public Map<Rank, Integer> LottoMatchs(List<Lotto> lottos, List<Integer> winningNumbers, int bonusNumber) {
-        List<Integer> winWithBonus = new ArrayList<>(winningNumbers);
-        winWithBonus.add(bonusNumber);
-        List<MatchResult> matchResults = match(lottos, winWithBonus, bonusNumber);
+    public Map<Rank, Integer> LottoMatchs(List<Lotto> lottos, Lotto winningNumbers, int bonusNumber) {
+        List<MatchResult> matchResults = match(lottos, winningNumbers, bonusNumber);
         return determineRank(matchResults);
     }
 
-    private List<MatchResult> match(List<Lotto> lottos, List<Integer> winWithBonus, int bonusNumber) {
+    private List<MatchResult> match(List<Lotto> lottos, Lotto winningNumbers, int bonusNumber) {
         List<MatchResult> results = new ArrayList<>();
+        List<Integer> winNums = winningNumbers.getNumbers();
 
         for (Lotto lotto : lottos) {
             List<Integer> match = new ArrayList<>(lotto.getNumbers());
-            match.retainAll(winWithBonus);
-            boolean bonus = match.remove(Integer.valueOf(bonusNumber));
+            match.retainAll(winNums);
+            boolean bonus = lotto.getNumbers().contains(bonusNumber);
 
             results.add(new MatchResult(match, bonus));
         }
