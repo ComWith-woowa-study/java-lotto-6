@@ -22,7 +22,7 @@ public class LottoResultService {
     }
 
     public void evaluate(List<Lotto> lottoList, WinningNumbers winningNumbers) {
-        Map<Rank, Integer> matchResult = lottoMatch.LottoMatchs(lottoList, winningNumbers.getWinWithBonusNumbers(), winningNumbers.getBonus());
+        Map<Rank, Integer> matchResult = lottoMatch.LottoMatchs(lottoList, winningNumbers.getWinningNumbers(), winningNumbers.getBonus());
         double statistic = lottoStatistic.LottoStatistic(matchResult, lottoList);
         outputView.printWinningStatistics(matchResult, statistic);
     }
