@@ -31,13 +31,7 @@ public class LottoMatch {
         Map<Rank, Integer> stats = makeMap();
 
         for (MatchResult matchResult : matchResults) {
-            Rank rank = Rank.NONE;
-            if (matchResult.getCount() == 6) rank = Rank.FIRST;
-            if (matchResult.getCount() == 5 && matchResult.isBonusNumber()) rank = Rank.SECOND;
-            if (matchResult.getCount() == 5) rank = Rank.THIRD;
-            if (matchResult.getCount() == 4) rank = Rank.FOURTH;
-            if (matchResult.getCount() == 3) rank = Rank.FIFTH;
-
+            Rank rank = Rank.of(matchResult.getCount(), matchResult.isBonusNumber());
             stats.put(rank, stats.get(rank) + 1);
         }
         return stats;
