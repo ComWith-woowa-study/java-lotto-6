@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 public class Retry {
 
     private Retry() {}
-    // 여기 정리하기
+
     public static <T> T untilValid(Supplier<T> attempt, Consumer<String> onError) {
         while (true) {
             try {
