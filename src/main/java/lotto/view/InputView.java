@@ -10,7 +10,7 @@ public class InputView {
     public int purchaseAmount() {
         System.out.println("구입금액을 입력해 주세요.");
         int input = userInput();
-        // 아래 정리하기
+
         List<Integer> inputs = List.of(input);
         validateNotEmpty(inputs);
         validatePositiveInteger(inputs);
@@ -60,13 +60,12 @@ public class InputView {
         return inputs;
     }
 
-    // 이거 정리하기
     private void validateNotEmpty(List<Integer> inputs) {
         if (inputs == null || inputs.isEmpty() || inputs.stream().anyMatch(Objects::isNull)) {
             throw new IllegalArgumentException("입력값에 null이 포함하거나 입력이 비어있습니다.");
         }
     }
-    // 정리하기
+
     private void validateIsNumber(String input) {
         try {
             Integer.parseInt(input.trim());
@@ -80,12 +79,12 @@ public class InputView {
             throw new IllegalArgumentException("양의 정수를 입력해야 합니다.");
         }
     }
-    // 이거 정리하기
+
     private void validateDuplicates(List<Integer> inputs) {
         Set<Integer> unique = new HashSet<>(inputs);
         if (unique.size() != inputs.size()) throw new IllegalArgumentException("중복되는 숫자가 있습니다.");
     }
-    // 이거 정리하기
+
     private void validateBonusNotInWinning(int input, List<Integer> winningNumbers) {
         if (winningNumbers.contains(input)) throw new IllegalArgumentException("보너스 번호와 당첨 번호는 달라야 합니다.");
     }
