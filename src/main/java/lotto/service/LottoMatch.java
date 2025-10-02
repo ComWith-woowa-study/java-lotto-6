@@ -7,14 +7,14 @@ import lotto.domain.Rank;
 import java.util.*;
 
 public class LottoMatch {
-    // 여기 정리하기
+
     public Map<Rank, Integer> LottoMatchs(List<Lotto> lottos, List<Integer> winningNumbers, int bonusNumber) {
         List<Integer> winWithBonus = new ArrayList<>(winningNumbers);
         winWithBonus.add(bonusNumber);
         List<MatchResult> matchResults = match(lottos, winWithBonus, bonusNumber);
         return determineRank(matchResults);
     }
-    // 여기 정리하기
+
     private List<MatchResult> match(List<Lotto> lottos, List<Integer> winWithBonus, int bonusNumber) {
         List<MatchResult> results = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class LottoMatch {
         }
         return results;
     }
-    // 여기 정리하기
+
     private Map<Rank, Integer> determineRank(List<MatchResult> matchResults) {
         Map<Rank, Integer> stats = makeMap();
 
@@ -43,7 +43,7 @@ public class LottoMatch {
         }
         return stats;
     }
-    // 여기 정리하기
+
     private Map<Rank, Integer> makeMap() {
         Map<Rank, Integer> stats = new HashMap<>();
         for (Rank rank : Rank.values()) {
