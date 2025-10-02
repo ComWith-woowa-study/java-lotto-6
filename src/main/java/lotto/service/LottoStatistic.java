@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LottoStatistic {
-    // 여기 정리하기
+
     public double LottoStatistic(Map<Rank, Integer> LottoMatchResult, List<Lotto> lottos) {
         long totalPayout = 0L;
         totalPayout = 5000L * LottoMatchResult.getOrDefault(Rank.FIFTH, 0);
