@@ -8,7 +8,6 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         validateSize(numbers);
         validateRange(numbers);
-        // 여기 정리하기
         this.numbers = numbers.stream().sorted().toList();
     }
 
