@@ -1,6 +1,8 @@
 package lotto.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -8,6 +10,7 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         validateSize(numbers);
         validateRange(numbers);
+        validateDuplicates(numbers);
         this.numbers = numbers.stream().sorted().toList();
     }
 
@@ -27,6 +30,11 @@ public class Lotto {
                 throw new IllegalArgumentException(LottoRule.MIN + "~" + LottoRule.MAX + "이내로 입력해야 합니다.");
             }
         }
+    }
+
+    private void validateDuplicates(List<Integer> inputs) {
+        Set<Integer> unique = new HashSet<>(inputs);
+        if (unique.size() != inputs.size()) throw new IllegalArgumentException("중복되는 숫자가 있습니다.");
     }
 
 }
