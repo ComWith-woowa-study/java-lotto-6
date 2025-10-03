@@ -1,6 +1,7 @@
 package lotto.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import lotto.service.NumbersGenerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,10 +20,10 @@ public class Lottos {
     }
 
     // 구매한 만큼 로또 생성
-    public static Lottos buy(int count) {
+    public static Lottos buy(int count, NumbersGenerator generator) {
         List<Lotto> list = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
-            list.add(new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6)));
+            list.add(new Lotto(generator.pick()));
         }
 
         return new Lottos(list);
