@@ -26,10 +26,6 @@ public class WinningNumbers {
         }
     }
 
-    public int getBonus() {
-        return bonus;
-    }
-
     public boolean contains(int number) {
         return numbers.contains(number);
     }

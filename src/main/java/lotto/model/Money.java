@@ -1,6 +1,5 @@
 package lotto.model;
 
-// 지불 클래스
 public class Money {
 
     private static final int LOTTO_PRICE = 1000;  // 로또 1장 가격

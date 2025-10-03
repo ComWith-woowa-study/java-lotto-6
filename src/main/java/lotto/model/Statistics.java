@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class Statistics {
 
+    // 당첨 횟수
     private final Map<Rank, Integer> counts;
 
     public Statistics(Map<Rank, Integer> counts) {

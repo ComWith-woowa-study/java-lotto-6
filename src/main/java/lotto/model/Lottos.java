@@ -1,6 +1,5 @@
 package lotto.model;
 
-
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ public class Lottos {
         this.lottos = lottos;
     }
 
+    // 구매한 만큼 로또 생성
     public static Lottos buy(int count) {
         List<Lotto> list = new ArrayList<>(count);
         for (int i = 0; i < count; i++) {
@@ -32,6 +32,7 @@ public class Lottos {
         return lottos;
     }
 
+    // 당첨 번호로 평가 후 결과 반환(등수 및 상금)
     public Statistics evaluate(WinningNumbers wn) {
         Map<Rank, Integer> counts = new HashMap<>();
         for (Lotto lotto : lottos) {

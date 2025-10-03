@@ -3,7 +3,6 @@ package lotto.model;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// 로또 클래스
 public class Lotto {
 
     private static final int MIN = 1;
@@ -12,6 +11,7 @@ public class Lotto {
 
     private final List<Integer> numbers;
 
+    // 전달받은 리스트 생성자(읽기 전용)
     public Lotto(List<Integer> numbers) {
         validateNumbers(numbers);
         this.numbers = Collections.unmodifiableList(numbers.stream()
